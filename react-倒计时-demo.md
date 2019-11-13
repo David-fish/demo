@@ -44,7 +44,7 @@ export default class App extends Component {
         return (
             <div className="app">
                 <p>
-                    <span>据本场结束：{h}时{m}分{s}秒</span>
+                    <span>距本场结束：{h}时{m}分{s}秒</span>
                     {
                         tswp.map((item,index)=>(
                             <span 
