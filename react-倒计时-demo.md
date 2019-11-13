@@ -27,14 +27,11 @@ export default class App extends Component {
     endtime=(end)=>{
         let curtime=new Date().getTime()
         let dtime=end-curtime
-        // this.timer=setInterval(()=>{
-            // console.log(1111);
             // let day = Math.floor((dtime / 1000 / 3600) / 24);
             let hour = Math.floor((dtime / 1000 / 3600) % 24);
             let minute = Math.floor((dtime / 1000 / 60) % 60);
             let second = Math.floor(dtime / 1000 % 60);
             this.setState({h:hour,m:minute,s:second})
-        // },1000)
     }
     timerval=()=>{
         this.timer=setInterval(()=>{
@@ -55,7 +52,9 @@ export default class App extends Component {
                     <span>据本场结束：{h}时{m}分{s}秒</span>
                     {
                         tswp.map((item,index)=>(
-                            <span onClick={()=>this.tab(index)} key={index}>{item}</span>
+                            <span 
+                            onClick={()=>this.tab(index)} 
+                            key={index}>{item}</span>
                         ))
                     }
                 </p>
