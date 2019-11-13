@@ -1,26 +1,23 @@
-#Nov-1
+#Nov-13
 export default class App extends Component {
     state={
         h:0,m:0,s:0,
         cur:0,
         tswp:['12:00','16:00','20:00']
     }
-
     componentDidMount(){
         this.timerval()
     }
-
     getcur=()=>{
         let {tswp,cur}=this.state
         let now = new Date();
         let year = now.getFullYear();       //年
         let month = now.getMonth() + 1;     //月
         let day = now.getDate();            //日
-        // console.log(new Date().getTime(),year,month,day,Date.parse(new Date(`${year}-${month}-${day} ${tswp[cur]}`)));
         const over=Date.parse(new Date(`${year}-${month}-${day} ${tswp[cur]}`))
         this.endtime(over)
     }
- //卸载组件取消倒计时
+    //卸载组件取消倒计时
     componentWillUnmount(){
          clearInterval(this.timer);
        }
@@ -38,12 +35,10 @@ export default class App extends Component {
             this.getcur()
         },1000)
     }
-
     tab=(index)=>{
         this.setState({cur:index})
         this.timerval()
     }
-
     render() {
         let {h,m,s,cur,tswp}=this.state
         return (
@@ -58,7 +53,6 @@ export default class App extends Component {
                         ))
                     }
                 </p>
-                
             </div>
         )
     }
